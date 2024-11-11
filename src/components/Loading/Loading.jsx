@@ -1,13 +1,14 @@
 import React from "react";
-import { ThreeCircles } from "react-loader-spinner";
+import { RotatingSquare } from "react-loader-spinner";
+
 const Loading = ({
   size = 80,
-  color = "#4fa94d",
-  text = "Loading",
-  showCircles = true,
-  circleSize = 100,
-  circleColor = "#4fa94d",
-  textColor = "green",
+  color = "#3498db",
+  text = "Please Wait",
+  showAnimation = true,
+  animationSize = 100,
+  animationColor = "#3498db",
+  textColor = "#2c3e50",
   textStyle = {},
 }) => {
   return (
@@ -19,29 +20,27 @@ const Loading = ({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        gap: "5px",
+        gap: "20px",
+        backgroundColor: "#f4f6f9",
       }}
     >
-      {showCircles && (
-        <ThreeCircles
-          height={circleSize}
-          width={circleSize}
-          color={circleColor}
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-          ariaLabel="three-circles-rotating"
-          outerCircleColor=""
-          innerCircleColor=""
-          middleCircleColor=""
+      {showAnimation && (
+        <RotatingSquare
+          height={animationSize}
+          width={animationSize}
+          color={animationColor}
+          ariaLabel="rotating-square-loader"
+          strokeWidth={2}
+          secondaryColor="#ecf0f1"
         />
       )}
       <span
         style={{
-          fontSize: "30px",
+          fontSize: "24px",
           color: textColor,
-          fontWeight: "bolder",
-          letterSpacing: "2px",
+          fontWeight: "600",
+          fontFamily: "Arial, sans-serif",
+          letterSpacing: "1.5px",
           ...textStyle,
         }}
       >
@@ -50,8 +49,5 @@ const Loading = ({
     </div>
   );
 };
+
 export default Loading;
-
-
-
-
